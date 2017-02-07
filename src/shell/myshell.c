@@ -16,6 +16,10 @@ void main(void) {
         // read user input
         char one_line[MAX_LINE_LEN];
         fgets(one_line, MAX_LINE_LEN, stdin);
+
+        // parse user input
+        
         printf("%s\n", one_line);
     }
 }
+
