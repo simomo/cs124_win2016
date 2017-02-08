@@ -34,15 +34,47 @@ void main(void) {
  * grep "aaaa" test.txt -> ["grep", "\"aaaa\"", "text.txt"]
  */
 void parse_cmd(char* one_line, char** parsed_cmd, int* parsed_cmd_len) {
+    // TODO: parse one_line to get cmd_len and start&end indexes of cmds
     int len = 3;
+
+    int cmd0_start = 0;
+    int cmd0_end = 4;
+    // char* cmd0 = "grep";
+
+    int cmd1_start = 5;
+    int cmd1_end = 11;
+    // char* cmd1 = "\"aaaa\"";
+
+    int cmd2_start = 12;
+    int cmd2_end = 20;
+    // char* cmd2 = "text.txt";
+
+    // alloc mem for cmds
+    char* cmd0 = (char*) malloc((cmd0_end - cmd0_start) * sizeof(char));
+    char* cmd1 = (char*) malloc((cmd1_end - cmd1_start) * sizeof(char));
+    char* cmd2 = (char*) malloc((cmd2_end - cmd2_start) * sizeof(char));
+    // TODO: copy cmd content
+    // write own str copy function
     *parsed_cmd_len = len;
     parsed_cmd = malloc(sizeof(char* a) * len);
 
-    char* cmd0 = "grep";
     *parsed_cmd = malloc(strlen(cmd0));
-    char* cmd1 = "\"aaaa\"";
     
     (*parsed_cmd) + 1 = 
-
+    // TODO: run the "grep" binary
 }
 
+char *strndup(char *str, int chars)
+{
+    char *buffer;
+    int n;
+
+    buffer = (char *) malloc(chars +1);
+    if (buffer)
+    {
+        for (n = 0; ((n < chars) && (str[n] != 0)) ; n++) buffer[n] = str[n];
+        buffer[n] = 0;
+    }
+
+    return buffer;
+}
