@@ -1,7 +1,50 @@
 #include <stdio.h>
+#include <stdlib.h> 
 // #include <unistd.h>
+#include "utils.h"
 
 #define MAX_LINE_LEN 256
+
+/*
+ * grep "aaaa" test.txt -> ["grep", "\"aaaa\"", "text.txt"]
+ */
+void parse_cmd(char* one_line, char** parsed_cmd, int* parsed_cmd_len) {
+    // TODO: parse one_line to get cmd_len and start&end indexes of cmds
+    int len = 3;
+
+    int cmd0_start = 0;
+    int cmd0_end = 4;
+    // char* cmd0 = "grep";
+
+    int cmd1_start = 5;
+    int cmd1_end = 11;
+    // char* cmd1 = "\"aaaa\"";
+
+    int cmd2_start = 12;
+    int cmd2_end = 20;
+    // char* cmd2 = "text.txt";
+
+    // alloc mem for cmds
+    char* cmd0 = (char*) malloc((cmd0_end - cmd0_start + 1) * sizeof(char));
+    char* cmd1 = (char*) malloc((cmd1_end - cmd1_start + 1) * sizeof(char));
+    char* cmd2 = (char*) malloc((cmd2_end - cmd2_start + 1) * sizeof(char));
+    // copy cmd content
+    cpy_part_str(one_line, cmd0_start, cmd0_end - cmd0_start, cmd0);
+    cpy_part_str(one_line, cmd1_start, cmd1_end - cmd1_start, cmd1);
+    cpy_part_str(one_line, cmd2_start, cmd2_end - cmd2_start, cmd2);
+
+    printf("cmd0: %s\n", cmd0);
+    printf("cmd1: %s\n", cmd1);
+    printf("cmd2: %s\n", cmd2);
+
+    // *parsed_cmd_len = len;
+    // parsed_cmd = malloc(sizeof(char* a) * len);
+
+    // *parsed_cmd = malloc(strlen(cmd0));
+    
+    // (*parsed_cmd) + 1 = 
+    // TODO: run the "grep" binary
+}
 
 
 void main(void) {
@@ -26,55 +69,8 @@ void main(void) {
         
         printf("%s\n", one_line);
 
+        parse_cmd(one_line, parsed_cmd, &parsed_cmd_len);
+
         break;
     }
-}
-
-/*
- * grep "aaaa" test.txt -> ["grep", "\"aaaa\"", "text.txt"]
- */
-void parse_cmd(char* one_line, char** parsed_cmd, int* parsed_cmd_len) {
-    // TODO: parse one_line to get cmd_len and start&end indexes of cmds
-    int len = 3;
-
-    int cmd0_start = 0;
-    int cmd0_end = 4;
-    // char* cmd0 = "grep";
-
-    int cmd1_start = 5;
-    int cmd1_end = 11;
-    // char* cmd1 = "\"aaaa\"";
-
-    int cmd2_start = 12;
-    int cmd2_end = 20;
-    // char* cmd2 = "text.txt";
-
-    // alloc mem for cmds
-    char* cmd0 = (char*) malloc((cmd0_end - cmd0_start) * sizeof(char));
-    char* cmd1 = (char*) malloc((cmd1_end - cmd1_start) * sizeof(char));
-    char* cmd2 = (char*) malloc((cmd2_end - cmd2_start) * sizeof(char));
-    // TODO: copy cmd content
-    // write own str copy function
-    *parsed_cmd_len = len;
-    parsed_cmd = malloc(sizeof(char* a) * len);
-
-    *parsed_cmd = malloc(strlen(cmd0));
-    
-    (*parsed_cmd) + 1 = 
-    // TODO: run the "grep" binary
-}
-
-char *strndup(char *str, int chars)
-{
-    char *buffer;
-    int n;
-
-    buffer = (char *) malloc(chars +1);
-    if (buffer)
-    {
-        for (n = 0; ((n < chars) && (str[n] != 0)) ; n++) buffer[n] = str[n];
-        buffer[n] = 0;
-    }
-
-    return buffer;
 }
