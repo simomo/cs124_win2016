@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h> 
 // #include <unistd.h>
 #include "utils.h"
 
@@ -25,13 +24,13 @@ void parse_cmd(char* one_line, char** parsed_cmd, int* parsed_cmd_len) {
     // char* cmd2 = "text.txt";
 
     // alloc mem for cmds
-    char* cmd0 = (char*) malloc((cmd0_end - cmd0_start + 1) * sizeof(char));
-    char* cmd1 = (char*) malloc((cmd1_end - cmd1_start + 1) * sizeof(char));
-    char* cmd2 = (char*) malloc((cmd2_end - cmd2_start + 1) * sizeof(char));
+    // char* cmd0 = (char*) malloc((cmd0_end - cmd0_start + 1) * sizeof(char));
+    // char* cmd1 = (char*) malloc((cmd1_end - cmd1_start + 1) * sizeof(char));
+    // char* cmd2 = (char*) malloc((cmd2_end - cmd2_start + 1) * sizeof(char));
     // copy cmd content
-    cpy_part_str(one_line, cmd0_start, cmd0_end - cmd0_start, cmd0);
-    cpy_part_str(one_line, cmd1_start, cmd1_end - cmd1_start, cmd1);
-    cpy_part_str(one_line, cmd2_start, cmd2_end - cmd2_start, cmd2);
+    char* cmd0 = cpy_part_str(one_line, cmd0_start, cmd0_end - cmd0_start);
+    char* cmd1 = cpy_part_str(one_line, cmd1_start, cmd1_end - cmd1_start);
+    char* cmd2 = cpy_part_str(one_line, cmd2_start, cmd2_end - cmd2_start);
 
     printf("cmd0: %s\n", cmd0);
     printf("cmd1: %s\n", cmd1);

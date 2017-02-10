@@ -1,16 +1,18 @@
 #include <stdio.h>
+#include <stdlib.h> 
 
 /*
- * Copy part of src string (from start_index) to dst.
- * Note: caller must guarantee dst having len + 1 free spaces.  
+ * Copy part of src string (from start_index with a length) to dst.
  *
- * TODO: malloc memory space in this function. Make caller's life easier.
  */
-void cpy_part_str(char* src, int start_index, int len, char* dst) {
+char* cpy_part_str(char* src, int start_index, int len) {
+    char* dst = (char*) malloc(sizeof(char) * (len + 1));
     int i = 0;
     for (i; i < len; i++) {
         *(dst + i) = *(src + start_index + i);
     }
 
     *(dst + len) = (char) 0;
+
+    return dst;
 }
