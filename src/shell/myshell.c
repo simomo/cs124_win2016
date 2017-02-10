@@ -9,24 +9,23 @@
  */
 void parse_cmd(char* one_line, char** parsed_cmd, int* parsed_cmd_len) {
     // TODO: parse one_line to get cmd_len and start&end indexes of cmds
+    int start_index = 0;
+    int len = 0;
+    char* p = one_line;
+    while (*p) {
+        
+    }
     int len = 3;
 
     int cmd0_start = 0;
     int cmd0_end = 4;
-    // char* cmd0 = "grep";
 
     int cmd1_start = 5;
     int cmd1_end = 11;
-    // char* cmd1 = "\"aaaa\"";
 
     int cmd2_start = 12;
     int cmd2_end = 20;
-    // char* cmd2 = "text.txt";
 
-    // alloc mem for cmds
-    // char* cmd0 = (char*) malloc((cmd0_end - cmd0_start + 1) * sizeof(char));
-    // char* cmd1 = (char*) malloc((cmd1_end - cmd1_start + 1) * sizeof(char));
-    // char* cmd2 = (char*) malloc((cmd2_end - cmd2_start + 1) * sizeof(char));
     // copy cmd content
     char* cmd0 = cpy_part_str(one_line, cmd0_start, cmd0_end - cmd0_start);
     char* cmd1 = cpy_part_str(one_line, cmd1_start, cmd1_end - cmd1_start);

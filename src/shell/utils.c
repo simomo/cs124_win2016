@@ -7,6 +7,10 @@
  */
 char* cpy_part_str(char* src, int start_index, int len) {
     char* dst = (char*) malloc(sizeof(char) * (len + 1));
+    if (!dst) {
+        return dst;
+    }
+
     int i = 0;
     for (i; i < len; i++) {
         *(dst + i) = *(src + start_index + i);
