@@ -9,11 +9,27 @@
  */
 void parse_cmd(char* one_line, char** parsed_cmd, int* parsed_cmd_len) {
     // TODO: parse one_line to get cmd_len and start&end indexes of cmds
-    int start_index = 0;
     int len = 0;
     char* p = one_line;
+    int cur_cmd_start_index = 0;  // the index where current cmd start
+    int cur_index = 0;  // the index of current point p 
+    int if_in_quote = 0;  // if we are in a quote scope
+
+    int[10][2] cmds;  // [[cmd1_start_index, cmd1_end_index], [...], [...]]
     while (*p) {
-        
+        switch(*p) {
+            /**
+             * Space
+             *  Just mv p if we are in a quote space, otherwise, this means the
+             *  end of previous cmd, so we store cur_cmd_start_index and cur_index
+             *  into 2-d array cmds, then set cur_cmd_start_index to cur_index + 1
+             *  
+             */
+            case ' ':
+                if (if_in_quote == 0) {
+
+                }
+        }
     }
     int len = 3;
 
