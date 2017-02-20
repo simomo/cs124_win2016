@@ -1,6 +1,7 @@
 #include <stdio.h>
 // #include <unistd.h>
 #include "utils.h"
+#include "cmd_store.h"
 
 #define MAX_LINE_LEN 256
 
@@ -16,6 +17,7 @@ void parse_cmd(char* one_line, char** parsed_cmd, int* parsed_cmd_len) {
     int if_in_quote = 0;  // if we are in a quote scope
 
     int[10][2] cmds;  // [[cmd1_start_index, cmd1_end_index], [...], [...]]
+    struct CmdStore* cmd_store = cmd_store_builder();
     while (*p) {
         switch(*p) {
             /**
