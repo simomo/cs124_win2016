@@ -1,5 +1,6 @@
-#include <cmocka.h>
-#include "cmd_store.h"
+// gcc -I"D:\Program Files (x86)\cmocka\include"  cmd_store_test.c
+#include "../cmd_store.h"
+#include "cmocka.h"
 
 static void cmd_store_builder_test(void** state) {
     (struct CmdStore*) cmd_store = cmd_store_builder();
