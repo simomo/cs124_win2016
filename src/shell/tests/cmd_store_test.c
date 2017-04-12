@@ -1,4 +1,5 @@
 // gcc -I"D:\Program Files (x86)\cmocka\include"  cmd_store_test.c
+// gcc ../cmd_store.c cmd_store_test.c -l cmocka -L /usr/lib
 #include <stddef.h>
 #include <setjmp.h>
 #include <stdarg.h>

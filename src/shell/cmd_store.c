@@ -1,6 +1,7 @@
+#include "cmd_store.h"
 #include <stdlib.h>
 
-(struct CmdStore*) cmd_store_builder(void) {
+struct CmdStore* cmd_store_builder(void) {
     CmdStore* ret = malloc(sizeof(CmdStore));
     ret->cmds = malloc(sizeof(int[0]) * CMD_STORE_INIT_SLOTS);
     ret->free_space = 0;
