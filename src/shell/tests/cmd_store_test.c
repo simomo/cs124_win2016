@@ -1,4 +1,7 @@
-// gcc -I"D:\Program Files (x86)\cmocka\include"  cmd_store_test.c
+// Windows:
+// gcc -I"D:\Program Files (x86)\cmocka\include" -I"C:/MinGW/include/*" -L"D:\Program Files (x86)\cmocka\lib" -L"C:\MinGW\lib" ../cmd_store.c cmd_store_test.c -l libcmocka
+
+// Linux:
 // gcc ../cmd_store.c cmd_store_test.c -l cmocka -L /usr/lib
 #include <stddef.h>
 #include <setjmp.h>
