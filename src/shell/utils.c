@@ -6,7 +6,9 @@
  * to dst (size = length + 1).
  * 
  * Note: 
- * This function can guarantee the dst ends with '\0' 
+ * This function can guarantee the dst ends with '\0',
+ *  so the dst will point to a piece of (len+1) * sizeof(char)
+ *  memory in heap.
  */
 char* cpy_part_str(char* src, int start_index, int len) {
     char* dst = (char*) malloc(sizeof(char) * (len + 1));  // 
