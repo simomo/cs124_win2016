@@ -14,9 +14,9 @@ typedef int (*cmd_p)[2];
 struct CmdStore {
     cmd_p cmds;  // store the cmds we have parsed, 16 slots max at first
     int free_space;  // point to the next free slot
-    int init_slots;  // starts with 16 cmds
-    int max_slots;  // limitation of extending slots
-    int cur_slots;   // current number of slots
+    int init_slots_num;  // starts with 16 cmds
+    int max_slots_num;  // limitation of extending slots
+    int cur_slots_num;   // current number of slots
 };
 
 struct CmdStore* cmd_store_builder(void);
